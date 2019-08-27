@@ -8,6 +8,7 @@ public class DevcaseApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DevcaseApplication.class, args);
+    
     }
 
 }
