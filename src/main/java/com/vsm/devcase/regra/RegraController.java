@@ -1,6 +1,7 @@
 package com.vsm.devcase.regra;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,10 +28,16 @@ public class RegraController {
 		return ResponseEntity.status(HttpStatus.OK).body(regras);
 	}
 	
+	@GetMapping("/valor-minimo")
+	public ResponseEntity<?> buscarValorMinimo(){
+		Map<String,Integer> valor = regraService.buscarValorMinimo();
+		return ResponseEntity.status(HttpStatus.OK).body(valor);
+	}
+	
 	@PostMapping
 	public ResponseEntity<?> adicionarRegra(@RequestParam Integer valor, @RequestParam Integer pontos){
 		Regra novaRegra = regraService.adicionarRegra(valor, pontos);
-		return ResponseEntity.status(HttpStatus.OK).body(novaRegra);
+		return ResponseEntity.status(HttpStatus.CREATED).body(novaRegra);
 	}
 
 	@DeleteMapping("/{codigo}")

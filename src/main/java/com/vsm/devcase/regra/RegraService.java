@@ -1,6 +1,8 @@
 package com.vsm.devcase.regra;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,9 +49,31 @@ public class RegraService {
 		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
 		Regra regra = regraRepository.findOne(codigo);
 		if (!regra.equals(regras.get(0))) {
-			throw new IllegalArgumentException("Somente a regra com maior valor pode ser deletada!");
+			throw new DevcaseException("Somente a regra com maior valor pode ser deletada!", HttpStatus.BAD_REQUEST);
 		} else {
 			regraRepository.delete(codigo);
 		}
+	}
+
+	public Map<String, Integer> buscarValorMinimo() {
+		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
+		Map<String, Integer> valorMap = new HashMap<String, Integer>();
+		if(regras.size() == 0) {
+			valorMap.put("valorMinimo", 0);		
+		} else {
+			valorMap.put("valorMinimo", regras.get(0).getValorMaximo());		
+		}
+		return valorMap;
+	}
+	
+	public Regra buscarRegraComValor(Double valor) {
+		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
+		Regra regraEncontrada = null;
+		for(Regra regra: regras ) {
+			if(valor > regra.getValorMinimo() && valor < regra.getValorMaximo()) {
+				regraEncontrada = regra;
+			}
+		}
+		return regraEncontrada;
 	}
 }
