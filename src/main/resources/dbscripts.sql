@@ -21,9 +21,16 @@ cli_estado varchar(2) not null);
 CREATE TABLE REGRA(
 reg_codigo integer primary key auto_increment,
 reg_valor_max integer not null,
-reg_valor_min integer not null
+reg_valor_min integer not null,
+reg_pontos integer not null
 );
 
-
-
+/*CRIAÇÃO DA TABELA DE VENDAS*/
+CREATE TABLE VENDA(
+ven_codigo integer primary key auto_increment,
+ven_cliente integer not null,
+ven_valor numeric,
+ven_data varchar(10),
+constraint fk_cliente foreign key (ven_cliente) references cliente(cli_codigo)
+);
 

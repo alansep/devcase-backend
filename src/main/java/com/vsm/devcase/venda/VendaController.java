@@ -18,26 +18,27 @@ public class VendaController {
 
 	@Autowired
 	private VendaService vendaService;
-	
-	
+
 	@GetMapping
 	public List<Venda> buscarVendas() {
 		return vendaService.buscarVendas();
 	}
-	
+
 	@GetMapping("/periodo")
-	public List<Venda> buscarVendasPorPeriodo(@RequestParam String de, @RequestParam String ate){
-		return vendaService.buscarVendasPorPeriodo(de,ate);
+	public List<Venda> buscarVendasPorPeriodo(@RequestParam String de, @RequestParam String ate) {
+		return vendaService.buscarVendasPorPeriodo(de, ate);
 	}
-	
+
 	@GetMapping("/periodo-sexo")
-	public List<Venda> buscarVendasPorPeriodo(@RequestParam String de, @RequestParam String ate, @RequestParam String sexo){
-		return vendaService.buscarVendasPorPeriodoESexo(de,ate,sexo);
+	public List<Venda> buscarVendasPorPeriodo(@RequestParam String de, @RequestParam String ate,
+			@RequestParam String sexo) {
+		return vendaService.buscarVendasPorPeriodoESexo(de, ate, sexo);
 	}
+
 	@PostMapping
-	public ResponseEntity<?> cadastrarVenda(@RequestBody Venda venda){
+	public ResponseEntity<?> cadastrarVenda(@RequestBody Venda venda) {
 		Venda vendaSalva = vendaService.cadastrarVenda(venda);
 		return ResponseEntity.status(HttpStatus.CREATED).body(vendaSalva);
 	}
-	
+
 }
