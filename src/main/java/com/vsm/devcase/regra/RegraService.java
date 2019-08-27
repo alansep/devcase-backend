@@ -94,7 +94,7 @@ public class RegraService {
 		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
 		Regra regraEncontrada = null;
 		for(Regra regra: regras ) {
-			if(valor > regra.getValorMinimo() && valor < regra.getValorMaximo()) {
+			if(valor >= regra.getValorMinimo() && valor < regra.getValorMaximo()) {
 				regraEncontrada = regra;
 			}
 		}
