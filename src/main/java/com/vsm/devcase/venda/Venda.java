@@ -1,7 +1,5 @@
 package com.vsm.devcase.venda;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +12,11 @@ import javax.validation.constraints.NotNull;
 
 import com.vsm.devcase.cliente.Cliente;
 
+/**
+ * Classe de modelo de Venda
+ * @author Gabriel Alan
+ *
+ */
 @Entity
 @Table(name = "venda")
 public class Venda {

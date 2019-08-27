@@ -10,16 +10,32 @@ import org.springframework.stereotype.Service;
 
 import com.vsm.devcase.exception.DevcaseException;
 
+/**
+ * Classe de Serviço referente as regras de negócio das Regras da aplicação.
+ * @author alansep
+ *
+ */
 @Service
 public class RegraService {
 
 	@Autowired
 	private RegraRepository regraRepository;
 
+	/**
+	 * Método que tem como função retornar todas as regras de um sistema.
+	 * @return
+	 */
 	public List<Regra> buscarRegras() {
 		return regraRepository.findAll();
 	}
-
+	
+	/**
+	 * Método que tem como função adionar uma nova regra ao sistema.
+	 * Cada nova regra adicionada terá obrigatóriamente como valor mínimo o valor máximo da ultima regra.
+	 * @param valor
+	 * @param pontos
+	 * @return Regra
+	 */
 	public Regra adicionarRegra(Integer valor, Integer pontos) {
 		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
 		Regra novaRegra;
@@ -45,6 +61,10 @@ public class RegraService {
 		}
 	}
 
+	/**
+	 * Método que tem como função remover uma regra por meio de seu código.
+	 * @param codigo
+	 */
 	public void removerRegra(Integer codigo) {
 		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
 		Regra regra = regraRepository.findOne(codigo);
@@ -55,6 +75,10 @@ public class RegraService {
 		}
 	}
 
+	/**
+	 * Método que têm como função buscar o valor mínimo permitido para a criação de uma nova regra.
+	 * @return Map<String, Integer>
+	 */
 	public Map<String, Integer> buscarValorMinimo() {
 		List<Regra> regras = regraRepository.findAllOrderByMaximoDesc();
 		Map<String, Integer> valorMap = new HashMap<String, Integer>();

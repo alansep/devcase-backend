@@ -1,5 +1,9 @@
 package com.vsm.devcase.external.entidades;
 
+/**
+ * Classe de modelo de Cidade, utilizada na requisição de serviços externos!
+ * @author Gabriel Alan
+ */
 public class Cidade {
 
 	private String estadoId;

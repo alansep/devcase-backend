@@ -5,6 +5,12 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Classe Embeddable para agrupar os dados de endereço do Cliente.
+ * 
+ * @author Gabriel Alan
+ *
+ */
 @Embeddable
 class Endereco {
 

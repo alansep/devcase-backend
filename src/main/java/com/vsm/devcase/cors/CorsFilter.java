@@ -15,6 +15,11 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+/**
+ * Configuração da origem de requisição permitida.
+ * @author Gabriel Alan
+ *
+ */
 @Component
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class CorsFilter implements Filter {
@@ -23,13 +28,10 @@ public class CorsFilter implements Filter {
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-
 	}
 
 	/**
-	 * Metodo responsável por monitorar a aplicação em tempo de execução e valida a
-	 * requisição para saber se ela é permitida ou não
+	 * Metodo responsável por monitorar a aplicação e verificar se determinada origem pode acessar os recursos deste backend!
 	 */
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain chain)
@@ -55,8 +57,6 @@ public class CorsFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
-
 	}
 
 }

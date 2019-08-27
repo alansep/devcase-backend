@@ -1,5 +1,9 @@
 package com.vsm.devcase.external.entidades;
 
+/**
+ * Classe de modelo de Estado, utilizada na requisição de serviços externos!
+ * @author Gabriel Alan
+ */
 public class Estado {
 
 	private String id;

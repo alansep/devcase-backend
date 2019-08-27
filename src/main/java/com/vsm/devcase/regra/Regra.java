@@ -8,6 +8,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Classe de Modelo de Regra
+ * @author Gabriel Alan
+ *
+ */
 @Entity
 @Table(name = "REGRA")
 public class Regra {

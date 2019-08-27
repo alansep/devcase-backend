@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+/**
+ * Classe Responsável por manusear as exceções lançadas e responser as
+ * requisições de maneira personalizada.
+ * 
+ * @author Gabriel Alan
+ *
+ */
 @ControllerAdvice
 public class DevcaseExceptionHandler extends ResponseEntityExceptionHandler {
 

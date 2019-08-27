@@ -10,6 +10,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+/**
+ * Classe de modelo de Cliente
+ * @author Gabriel Alan
+ * 
+ */
 @Entity
 @Table(name = "CLIENTE")
 public class Cliente {
