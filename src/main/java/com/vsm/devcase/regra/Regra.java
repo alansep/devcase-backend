@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  *
  */
 @Entity
-@Table(name = "REGRA")
+@Table(name = "regra")
 public class Regra {
 
 	@Id

@@ -17,7 +17,7 @@ public interface RegraRepository extends JpaRepository<Regra, Integer> {
 	 * Método customizado que retorna todas regras ordenadas pelo valor máximo de fomra descrescente. 
 	 * @return List<Regra>
 	 */
-	@Query(value = "SELECT * FROM REGRA ORDER BY REG_VALOR_MAX DESC", nativeQuery = true)
+	@Query(value = "select * from regra order by reg_valor_max desc", nativeQuery = true)
 	public List<Regra> findAllOrderByMaximoDesc();
 
 }

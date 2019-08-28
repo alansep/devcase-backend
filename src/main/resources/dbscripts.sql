@@ -2,7 +2,7 @@
 CREATE DATABASE vsmdevcasedb;
 
 /*CRIAÇÃO DA TABELA DE CLIENTES*/
-CREATE TABLE CLIENTE(
+CREATE TABLE cliente(
 cli_codigo integer primary key auto_increment,
 cli_pontuacao integer not null,
 cli_nome varchar(100) not null,
@@ -18,7 +18,7 @@ cli_cidade varchar(50) not null,
 cli_estado varchar(2) not null);
 
 /*CRIAÇÃO DA TABELA DE REGRAS*/
-CREATE TABLE REGRA(
+CREATE TABLE regra(
 reg_codigo integer primary key auto_increment,
 reg_valor_max integer not null,
 reg_valor_min integer not null,
@@ -26,11 +26,10 @@ reg_pontos integer not null
 );
 
 /*CRIAÇÃO DA TABELA DE VENDAS*/
-CREATE TABLE VENDA(
+CREATE TABLE venda(
 ven_codigo integer primary key auto_increment,
 ven_cliente integer not null,
 ven_valor numeric,
 ven_data varchar(10),
-constraint fk_cliente foreign key (ven_cliente) references cliente(cli_codigo)
-);
+constraint fk_cliente foreign key (ven_cliente) references cliente(cli_codigo));
 
